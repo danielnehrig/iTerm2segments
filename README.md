@@ -1,4 +1,4 @@
-![iTermBadge](https://img.shields.io/badge/iTerm2-statusline-green?logo=apple&iTerm2=statusline) ![spotifyBadge](https://img.shields.io/badge/segment-itunes-green?logo=apple&segment=iTunes) ![spotifyBadge](https://img.shields.io/badge/segment-spotify-green?logo=spotify&segment=spotify)
+![travis](https://travis-ci.com/danielnehrig/iTerm2segments.svg?branch=master) ![iTermBadge](https://img.shields.io/badge/iTerm2-statusline-green?logo=apple&iTerm2=statusline) ![spotifyBadge](https://img.shields.io/badge/segment-itunes-green?logo=apple&segment=iTunes) ![spotifyBadge](https://img.shields.io/badge/segment-spotify-green?logo=spotify&segment=spotify)
 
 # iTerm2 Statusline segments
 
