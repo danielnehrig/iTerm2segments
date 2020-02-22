@@ -2,7 +2,9 @@
 
 ## Install
 
-- git clone https://github.com/danielnehrig/iTerm2iTunes ~/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/
+- git clone https://github.com/danielnehrig/iTerm2iTunes
+- cd into repo
+- ./install.py
 - Open iTerm2
   - Go to Session > Edit Session > Session
   - Check Statusbar enabled
