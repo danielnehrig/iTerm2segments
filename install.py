@@ -2,18 +2,18 @@
 
 import os
 import sys
-from os import listdir
+from os import listdir, path
 from os.path import isfile, join
 from os import system
 from getpass import getuser
 from datetime import datetime
 
 
-install_folder = '~/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/'
 now = datetime.now()
 current_time = now.strftime('%H:%M:%S')
 current_folder = os.path.abspath(os.getcwd())
 user = getuser()
+install_folder = '/Users/{0}/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/'.format(user)
 home = '/Users/' + user + '/'
 segment_folder = '{0}{1}'.format(current_folder, '/segments')
 
@@ -45,11 +45,6 @@ class Log(Colors):
         attach = self.HEADER + ': {3}' + self.ENDC
         return start + attach
 
-    def buildStepString(self, kind, color):
-        start = '{2} {0} ' + color + '{1}:' + kind + ' {4}/16' + self.ENDC
-        attach = self.BOLD + ': {3}' + self.ENDC
-        return start + attach
-
     def Success(self, string):
         st = self.buildLogString('SUCCESS', self.OKGREEN)
         print(st.format(self.now(), self.user, arrow, string))
@@ -70,10 +65,6 @@ class Log(Colors):
         st = self.buildLogString('INFO', self.OKBLUE)
         print(st.format(self.now(), self.user, arrow, string))
 
-    def Step(self, string, step):
-        st = self.buildStepString('STEP', self.OKBLUE)
-        print(st.format(self.now(), self.user, arrow, string, step))
-
 
 log = Log()
 
@@ -89,10 +80,21 @@ def Copy(source, dest):
 
 def Main():
     log.Info('Start Installation')
-    for file in onlyfiles:
-        Copy(file, install_folder)
-    log.Success('Finish Installation')
-    sys.exit(0)
+    if path.exists(install_folder):
+        for file in onlyfiles:
+            Copy(file, install_folder)
+        log.Success('Finish Installation')
+        log.Critical('If you like it pls leave a star on the repo :) https://github.com/danielnehrig/iTerm2iTunes')
+        sys.exit(0)
+    else:
+        log.Error('{0} does not exist'.format(segment_folder))
+        log.Info('Creating Folder')
+        os.mkdir(install_folder)
+        for file in onlyfiles:
+            Copy(file, install_folder)
+        log.Success('Finish Installation')
+        log.Critical('If you like it pls leave a star on the repo :) https://github.com/danielnehrig/iTerm2iTunes')
+        sys.exit(0)
 
 
 def Help():
