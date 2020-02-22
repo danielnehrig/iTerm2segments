@@ -84,7 +84,7 @@ def Main():
         for file in onlyfiles:
             Copy(file, install_folder)
         log.Success('Finish Installation')
-        log.Critical('If you like it pls leave a star on the repo :) https://github.com/danielnehrig/iTerm2iTunes')
+        log.Critical('If you like it pls leave a star on the repo :) https://github.com/danielnehrig/iTerm2segments')
         sys.exit(0)
     else:
         log.Error('{0} does not exist'.format(segment_folder))
@@ -93,7 +93,7 @@ def Main():
         for file in onlyfiles:
             Copy(file, install_folder)
         log.Success('Finish Installation')
-        log.Critical('If you like it pls leave a star on the repo :) https://github.com/danielnehrig/iTerm2iTunes')
+        log.Critical('If you like it pls leave a star on the repo :) https://github.com/danielnehrig/iTerm2segments')
         sys.exit(0)
 
 
