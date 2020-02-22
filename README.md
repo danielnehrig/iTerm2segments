@@ -1,10 +1,10 @@
-![iTermBadge](https://img.shields.io/badge/iTerm2-statusline-green?logo=apple&iTerm2=statusline)
+![iTermBadge](https://img.shields.io/badge/iTerm2-statusline-green?logo=apple&iTerm2=statusline) ![spotifyBadge](https://img.shields.io/badge/segment-itunes-green?logo=apple&segment=iTunes) ![spotifyBadge](https://img.shields.io/badge/segment-spotify-green?logo=spotify&segment=spotify)
 
-# iTerm2 Statusline iTunes segment
+# iTerm2 Statusline segments
 
 ## Install
 
-- git clone https://github.com/danielnehrig/iTerm2iTunes
+- git clone https://github.com/danielnehrig/iTerm2segments
 - cd into repo
 - ./install.py
 - Open iTerm2
@@ -13,6 +13,6 @@
   - Go to Session
   - Check Statusbar enabled
   - Then Click Configure Status Line
-  - Drag the iTunes segment to active segments
+  - Drag the iTunes or spotify segment to active segments
 
-![iTunes segment](https://raw.githubusercontent.com/danielnehrig/iTerm2iTunes/master/itunes.png)
+![player segment](https://raw.githubusercontent.com/danielnehrig/iTerm2segments/master/itunes.png)

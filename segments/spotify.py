@@ -66,12 +66,12 @@ def asrun(ascript):
 
 async def main(connection):
     component = iterm2.StatusBarComponent(
-            short_description="iTunes",
-            detailed_description="This Component shows the current itunes song",
+            short_description="spotify",
+            detailed_description="This Component shows the current spotfiy song",
             knobs=[],
-            exemplar="iTunes",
+            exemplar="spotify",
             update_cadence=1,
-            identifier="com.iterm2.iTunes")
+            identifier="com.iterm2.spotify")
 
     @iterm2.StatusBarRPC
     async def coro(
@@ -80,33 +80,38 @@ async def main(connection):
             cols=iterm2.Reference("columns")):
         status_delimiter = '-~`/='
         ascript = '''
-            tell application "System Events"
-                set process_list to (name of every process)
+          tell application "System Events"
+            set process_list to (name of every process)
+          end tell
+
+          if process_list contains "Spotify" then
+            tell application "Spotify"
+              if player state is playing or player state is paused then
+                set track_name to name of current track
+                set artist_name to artist of current track
+                set album_name to album of current track
+                set track_length to duration of current track
+                set now_playing to "" & player state & "{0}" & album_name & "{0}" & artist_name & "{0}" & track_name & "{0}" & track_length & "{0}" & player position
+                return now_playing
+              else
+                return player state
+              end if
             end tell
-
-            if process_list contains "Music" then
-                tell application "Music"
-                    set t_title to name of current track
-                    set t_artist to artist of current track
-                    set t_album to album of current track
-                    set t_duration to duration of current track
-                    set t_elapsed to player position
-                    set t_state to player state
-                    return t_title & "{0}" & t_artist & "{0}" & t_album & "{0}" & t_elapsed & "{0}" & t_duration & "{0}" & t_state
-                    end tell
-            end if
+          end if
         '''.format(status_delimiter)
-        now_playing = asrun(ascript)
-        if not now_playing:
+        spotify = asrun(ascript)
+        if not spotify:
             return ""
-        now_playing = now_playing.split(status_delimiter)
-        if len(now_playing) != 6:
-            return
-        title, artist, album = now_playing[0], now_playing[1], now_playing[2]
-        state = _convert_state(now_playing[5])
-        total = _convert_seconds(now_playing[4].replace(',', '.'))
-        elapsed = _convert_seconds(now_playing[3].replace(',', '.'))
 
+        spotify_status = spotify.split(status_delimiter)
+        state = _convert_state(spotify_status[0])
+        if state == 'stop':
+            return None
+
+        artist = spotify_status[2]
+        title = spotify_status[3]
+        total = _convert_seconds(int(spotify_status[4].replace(',', '.'))/1000)
+        elapsed = _convert_seconds(spotify_status[5].replace(',', '.'))
         return "{} {} - {} {} {}".format(state, artist, title, elapsed, total)
 
     # Register the component.
