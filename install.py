@@ -89,7 +89,7 @@ def Main():
     else:
         log.Error('{0} does not exist'.format(segment_folder))
         log.Info('Creating Folder')
-        os.mkdirs(install_folder)
+        os.makedirs(install_folder)
         for file in onlyfiles:
             Copy(file, install_folder)
         log.Success('Finish Installation')
