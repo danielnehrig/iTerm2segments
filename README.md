@@ -8,3 +8,5 @@
   - Check Statusbar enabled
   - Then Click Configure Status Line
   - Drag the iTunes segment to active segments
+
+![iTunes segment](https://raw.githubusercontent.com/danielnehrig/iTerm2iTunes/master/itunes.png)
