@@ -87,7 +87,7 @@ def Main():
         log.Critical('If you like it pls leave a star on the repo :) https://github.com/danielnehrig/iTerm2segments')
         sys.exit(0)
     else:
-        log.Error('{0} does not exist'.format(segment_folder))
+        log.Error('{0} does not exist'.format(install_folder))
         log.Info('Creating Folder')
         os.makedirs(install_folder)
         for file in onlyfiles:
