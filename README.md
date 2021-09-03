@@ -1,13 +1,22 @@
 ![travis](https://travis-ci.com/danielnehrig/iTerm2segments.svg?branch=master) ![iTermBadge](https://img.shields.io/badge/iTerm2-statusline-green?logo=apple&iTerm2=statusline) ![spotifyBadge](https://img.shields.io/badge/segment-itunes-green?logo=apple&segment=iTunes) ![spotifyBadge](https://img.shields.io/badge/segment-spotify-green?logo=spotify&segment=spotify)
 
-# iTerm2 Statusline segments
+# iTerm2 Spotify + iTunes Status Line Components
 
 ## Install
+To install, get the repo contents via the shell, and then actually install the component via iTerm2.
 
-- git clone https://github.com/danielnehrig/iTerm2segments
-- cd into repo
-- ./install.py
+### Shell Install
+
+```sh
+git clone https://github.com/danielnehrig/iTerm2segments
+cd iTerm2segments
+./install.py
+```
+
+### iTerm2 Install
+
 - Open iTerm2
+  - If needed, install the Python runtime via the `Scripts` menu. The `spotify.py` and `iTunes.py` files should be checked under the `AutoLaunch` submenu of `Scripts`.
   - Go to Profiles > Open Profiles
   - Click Edit Profiles
   - Go to Session

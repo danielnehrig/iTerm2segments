@@ -13,7 +13,7 @@ now = datetime.now()
 current_time = now.strftime('%H:%M:%S')
 current_folder = os.path.abspath(os.getcwd())
 user = getuser()
-install_folder = '/Users/{0}/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/'.format(user)
+install_folder = '/Users/{0}/Library/Application Support/iTerm2/Scripts/AutoLaunch/'.format(user)
 home = '/Users/' + user + '/'
 segment_folder = '{0}{1}'.format(current_folder, '/segments')
 

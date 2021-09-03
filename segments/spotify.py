@@ -112,7 +112,7 @@ async def main(connection):
         title = spotify_status[3]
         total = _convert_seconds(int(spotify_status[4].replace(',', '.'))/1000)
         elapsed = _convert_seconds(spotify_status[5].replace(',', '.'))
-        return "{} {} - {} {} {}".format(state, artist, title, elapsed, total)
+        return "{} {} - {} {}/{}".format(state, artist, title, elapsed, total)
 
     # Register the component.
     await component.async_register(connection, coro)

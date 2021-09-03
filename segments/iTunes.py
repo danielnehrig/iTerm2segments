@@ -107,7 +107,7 @@ async def main(connection):
         total = _convert_seconds(now_playing[4].replace(',', '.'))
         elapsed = _convert_seconds(now_playing[3].replace(',', '.'))
 
-        return "{} {} - {} {} {}".format(state, artist, title, elapsed, total)
+        return "{} {} - {} {}/{}".format(state, artist, title, elapsed, total)
 
     # Register the component.
     await component.async_register(connection, coro)
